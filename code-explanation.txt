@@ -1,18 +1,14 @@
+Hey there, Amir is here from Bek Brace.
+Thought of giving you the explanation of each code line here, just in case you find any difficulty understanding any syntax or logic
+that was not well thoroughly explained in the video.
 Explanation:
-
 The code begins by defining the data segment, which includes the messages to be displayed.
-
 The userMsg variable holds the message "Please enter a number: ".
-
 lenUserMsg is calculated as the difference between the current address ($) and the address of userMsg, giving the length of the message.
-
 Similarly, dispMsg holds the message "You have entered: ", and lenDispMsg is calculated as the length of dispMsg.
-
 The code then defines the uninitialized data segment (bss) where the num variable is reserved with a size of 5 bytes.
-
 The text segment contains the actual code.
 _start is the entry point of the program.
-
 The first system call is sys_write. The code sets the system call number (eax) to 4, the file descriptor (ebx) to 1 (stdout), the address of the user message (ecx), and the length of the user message (edx). Then, it performs the system call by calling the kernel with int 0x80.
 The second system call is sys_read. It sets the system call number (eax) to 3, the file descriptor (ebx) to 2 (stdin), the address to store the user input (ecx), and the maximum number of bytes to read (edx). The system call is performed using int 0x80.
 The third system call is another sys_write to display the message "The entered number is: ". It sets the same registers as before.
